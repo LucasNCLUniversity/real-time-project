@@ -8,6 +8,4 @@ def dateSplit():
     current = str(datetime.datetime.now())
     regexPattern = '|'.join(map(re.escape, delimiters))
     listedTime = re.split(regexPattern, current)
-    return listedTime
-
-dateSplit()
+    return listedTime #order of list goes [year, month, day, hour, minute, second]
