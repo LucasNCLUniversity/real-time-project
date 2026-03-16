@@ -1,4 +1,5 @@
 #imports
+from flask import Flask, render_template #for the frontend
 import datetime
 import re #for splitting the string
 
@@ -9,3 +10,12 @@ def dateSplit():
     regexPattern = '|'.join(map(re.escape, delimiters))
     listedTime = re.split(regexPattern, current)
     return listedTime #order of list goes [year, month, day, hour, minute, second]
+
+#flask logic for setting up index
+app = Flask('testapp')
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+if __name__ == '__main__':
+    app.run()
