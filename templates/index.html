@@ -6,6 +6,23 @@
     <body>
         <h1>Real Time Project</h1>
         <p>if this text and the title appears then the test was successful</p>
-        <p>this is the time as of running the program: {{str(time)}}</p>
+        <p>the time right now is</p>
+        <p><span id="clock"></span></p>
+        <script>
+            function updateClock(){
+                const now = new Date();
+                const day = String(now.getDate()).padStart(2, '0');
+                const month = String(now.getMonth() + 1).padStart(2, '0');
+                const year = now.getFullYear();
+                const hours = String(now.getHours()).padStart(2, '0');
+                const minutes = String(now.getMinutes()).padStart(2, '0');
+                const seconds = String(now.getSeconds()).padStart(2, '0');
+                
+                document.getElementById('clock').textContent = `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
+
+            }
+            updateClock();
+            setInterval(updateClock, 1000);
+        </script>
     </body>
 </html>
